@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store, StoreConfig } from '@datorama/akita';
 
-export interface AuthState {
+export interface AuthState  {
   name: string;
   token: string;
  }
