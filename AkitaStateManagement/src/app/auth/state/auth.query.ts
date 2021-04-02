@@ -1,0 +1,18 @@
+import { Injectable } from '@angular/core';
+import { Query } from '@datorama/akita';
+import { AuthStore, AuthState } from './auth.store';
+
+@Injectable({ providedIn: 'root' })
+export class AuthQuery extends Query<AuthState> {
+
+  constructor(protected store: AuthStore) {
+    super(store);
+  }
+  
+  $isLoggedIn = this.select(state => !!state.token); // 1
+
+  isLoggedIn() {
+    return !!this.getValue().token; // 2
+  }
+
+}
